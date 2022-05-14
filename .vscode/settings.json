@@ -1,0 +1,8 @@
+{
+    "go.toolsEnvVars": {
+        "GOPROXY": "https://goproxy.cn,direct"
+    },
+    "gopls": {
+        "ui.semanticTokens": true
+    }
+}
