@@ -31,7 +31,7 @@ func (*MyListener) Handler(e event.Event) {
 
 func main() {
 
-	manager.GetInstance().Register(manager.NewEvent(context.Background(), TestEvent), &MyListener{})
+	manager.GetInstance().Register(TestEvent, &MyListener{})
 	manager.GetInstance().Start()
 
 	manager.GetInstance().Send(manager.NewEvent(context.Background(), TestEvent))

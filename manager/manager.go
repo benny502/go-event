@@ -20,12 +20,12 @@ type Manager struct {
 	eventChan chan event.Event
 }
 
-func (manager *Manager) Register(e event.Event, l listener.Listener) {
+func (manager *Manager) Register(e event.EventType, l listener.Listener) {
 	manager.lock.Lock()
-	if _, ok := manager.container[e.Type]; !ok {
-		manager.container[e.Type] = make([]listener.Listener, 0)
+	if _, ok := manager.container[e]; !ok {
+		manager.container[e] = make([]listener.Listener, 0)
 	}
-	manager.container[e.Type] = append(manager.container[e.Type], l)
+	manager.container[e] = append(manager.container[e], l)
 	manager.lock.Unlock()
 }
 
